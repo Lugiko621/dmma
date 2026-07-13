@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Construction Blueprint</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Expanded:wght@600;700;800&family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="construction.css">
+</head>
+<body>
+
+<header id="siteHeader">
+  <nav class="wrap">
+    <a href="#" class="logo">
+      <img src="picha/logo.jpeg">
+    </a>
+    <ul class="navlinks">
+      <li class="dropdown">
+        <a href="#about">About Us</a>
+        <ul class="submenu">
+          <li><a href="who-we-are.html">WHO WE ARE</a></li>
+          <li><a href="our-story.html">OUR STORY</a></li>
+          <li><a href="management.html">MANAGEMENT TEAM</a></li>
+        </ul>
+      
+      </li>
+      <li><a href="our-services.html">Our Services</a></li>
+      <li><a href="#">testimonies</a></li>
+      <li><a href="our-projects.html">Projects</a></li>
+      <li><a href="form.html" class="btn">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-slides" id="heroSlides">
+    <div class="hero-slide active" data-tone="1"
+         data-eyebrow="Class 1 Contractor · Est. structure"
+         data-title="Building your <em>vision</em> into reality"
+         data-desc="A group of civil, energy, and manufacturing companies working under one roof to deliver projects of national scale — on time, every time."></div>
+    <div class="hero-slide" data-tone="2"
+         data-eyebrow="National Infrastructure · Since 2021"
+         data-title="Powering the <em>backbone</em> of a nation"
+         data-desc="From pipelines to power stations, our energy division delivers critical infrastructure at scale, on schedule, and built to last."></div>
+    <div class="hero-slide" data-tone="3"
+         data-eyebrow="Integrated Group · Six Disciplines"
+         data-title="One team, <em>every</em> discipline"
+         data-desc="Civil, energy, manufacturing, and real estate working in lockstep — a single group resourced to take on projects of any size."></div>
+  </div>
+
+  <div class="hero-index">
+    <span id="slideCur">01</span>
+    <div class="line"></div>
+    <span>03</span>
+  </div>
+
+  <div class="hero-content">
+    <div class="wrap">
+      <div class="hero-text">
+        <div class="eyebrow on-dark" id="heroEyebrow">Class 1 Contractor · Est. structure</div>
+        <h1 id="heroTitle">Building your <em>vision</em> into reality</h1>
+        <p id="heroDesc">A group of civil, energy, and manufacturing companies working under one roof to deliver projects of national scale — on time, to spec, every time.</p>
+        <div class="hero-ctas">
+          <a href="#services" class="btn-solid">Explore Our Business →</a>
+          <a href="#contact" class="btn-outline">Start a Project</a>
+        </div>
+      </div>
+      <div class="hero-dots" id="heroDots"></div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="wrap">
+    <div class="stat">
+      <div class="num"><span class="counter" data-target="45">0</span>+</div>
+      <div class="label">Years of combined industry experience</div>
+    </div>
+    <div class="stat">
+      <div class="num"><span class="counter" data-target="180">0</span>+</div>
+      <div class="label">Projects delivered across sectors</div>
+    </div>
+    <div class="stat">
+      <div class="num"><span class="counter" data-target="320">0</span>+</div>
+      <div class="label">Units of heavy equipment in the fleet</div>
+    </div>
+    <div class="stat">
+      <div class="num"><span class="counter" data-target="1200">0</span>+</div>
+      <div class="label">Skilled professionals across the group</div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="wrap about-grid">
+    <div class="about-visual">
+      <div class="tag">qualified contractors. One integrated group. Founded 2019.</div>
+    </div>
+    <div class="about-copy">
+      <div class="eyebrow on-light">Who We Are</div>
+      <h2 style="margin:16px 0 22px;font-size:clamp(26px,3vw,38px);">One group,<br>six disciplines</h2>
+      <p>The Group brings together civil engineering, energy infrastructure, manufacturing, real estate, trading, and financial services under a single holding structure — built on the track record of established Class 1 contractors.</p>
+      <ul class="about-list">
+        <li>Shared equipment fleet and technical resourcing across every subsidiary</li>
+        <li>In-house manufacturing for pipe and infrastructure materials</li>
+        <li>Direct participation in national-scale energy and transport projects</li>
+        <li>A financial services affiliation supporting long-term project financing</li>
+      </ul>
+      <a href="our-story.html" class="btn-solid" style="background:var(--ink);color:var(--paper);">Our Story →</a>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow on-dark">What We Do</div>
+        <h2 style="margin-top:16px;">Our core business</h2>
+      </div>
+      <p>Six divisions operating independently, resourced collectively — each licensed and led by specialists in its field.</p>
+    </div>
+    <div class="service-grid">
+      <div class="service-card">
+        <span class="service-num">01</span>
+        <h3>Construction &amp; Civil Works</h3>
+        <p>Full-scale civil and building contracting for infrastructure, industrial, and commercial clients.</p>
+        <span class="go">Learn more →</span>
+      </div>
+      <div class="service-card">
+        <span class="service-num">02</span>
+        <h3>Energy &amp; Power Solutions</h3>
+        <p>Electrical, HVAC, and telecommunications infrastructure delivered under a dedicated energy license.</p>
+        <span class="go">Learn more →</span>
+      </div>
+      <div class="service-card">
+        <span class="service-num">03</span>
+        <h3>Industrial Manufacturing</h3>
+        <p>A modern pipe-production facility supplying water, agriculture, and oil &amp; gas infrastructure.</p>
+        <span class="go">Learn more →</span>
+      </div>
+      <div class="service-card">
+        <span class="service-num">04</span>
+        <h3>Real Estate Development</h3>
+        <p>Residential, commercial, and mixed-use developments led by the group's property arm.</p>
+        <span class="go">Learn more →</span>
+      </div>
+      <div class="service-card">
+        <span class="service-num">05</span>
+        <h3>Trading &amp; Supply Chain</h3>
+        <p>Procurement and materials trading in support of group projects and external clients.</p>
+        <span class="go">Learn more →</span>
+      </div>
+      <div class="service-card">
+        <span class="service-num">06</span>
+        <h3>Financial &amp; Investment</h3>
+        <p>A strategic banking affiliation strengthening the group's project financing capacity.</p>
+        <span class="go">Learn more →</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPANIES -->
+<section class="companies" id="companies">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow on-light">multiple services</div>
+        <h2 style="margin-top:16px;">Under one roof</h2>
+      </div>
+      <p>Independently operated, independently licensed — united by shared standards and resources.</p>
+    </div>
+    <div class="company-grid">
+      <div class="company-card">
+        <div class="company-media1"><span>Civil &amp; Building</span></div>
+        <div class="company-body">
+          <h3>JV Contracting Ltd.</h3>
+          <p>Class 1 civil, building, mechanical, and electrical contractor for large-scale infrastructure.</p>
+          <div class="focus"><span>Oil &amp; Gas</span><span>Mining</span><span>Infrastructure</span></div>
+          <a href="#">Visit site →</a>
+        </div>
+      </div>
+      <div class="company-card">
+        <div class="company-media2"><span>Energy &amp; Power</span></div>
+        <div class="company-body">
+          <h3>Silopower Ltd.</h3>
+          <p>Electrical, HVAC, and telecommunications infrastructure for public and private clients.</p>
+          <div class="focus"><span>Government</span><span>Private Sector</span></div>
+          <a href="#">Visit site →</a>
+        </div>
+      </div>
+      <div class="company-card">
+        <div class="company-media3"><span>Manufacturing</span></div>
+        <div class="company-body">
+          <h3>Industries Ltd.</h3>
+          <p>Manufacturer of HDPE, PPR, and HDRC piping systems for infrastructure and agriculture.</p>
+          <div class="focus"><span>Water</span><span>Agriculture</span><span>Oil &amp; Gas</span></div>
+          <a href="#">Visit site →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="projects" id="projects">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow on-dark">Recent Work</div>
+        <h2 style="margin-top:16px;">Featured projects</h2>
+      </div>
+      <p>A selection of the national-scale programs the group has contributed to.</p>
+    </div>
+    <div class="project-list">
+      <a href="#" class="project-row">
+        <span class="pnum">01</span>
+        <div><h3>Permanent Water Supply Network – Dungu Farm
+at Kigamboni, Dar es Salaam
+
+</h3><p> Integrated technical sub-contracting (excavation, pipe laying, tank construction) and high-specification material supply.
+	Partnership: Crossworld Construction Co. Ltd</p></div>
+        <span class="ptag">water Infrastructure</span>
+        <span class="arrow">→</span>
+      </a>
+      <a href="#" class="project-row">
+        <span class="pnum">02</span>
+        <div><h3>Bugoro-Lugata & Mwadubi Water Supply Infrastructure
+in Sengerema, Mwanza
+
+</h3><p> Full-scale civil works execution alongside bulk procurement of HDPE/GS pipes, fittings, high-tensile steel and structural cement.
+	Partnership with Kamba's Group of Companies Ltd</p></div>
+        <span class="ptag">water Infrastructure</span>
+        <span class="arrow">→</span>
+      </a>
+      <a href="#" class="project-row">
+        <span class="pnum">03</span>
+        <div><h3>National Hydropower Station</h3><p>Large-scale hydroelectric power generation supporting the national grid.</p></div>
+        <span class="ptag">Energy Generation</span>
+        <span class="arrow">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="contact" style="padding:0;">
+  <div class="wrap" style="padding:80px 32px;">
+    <h2>Ready to build something great?</h2>
+    <a href="form.html" class="btn-solid">Start a Project Inquiry →</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a href="#" class="logo"><span class="mark"></span>BUILD&nbsp;GROUP</a>
+        <p>An integrated holding group across construction, energy, manufacturing, real estate, and financial services.</p>
+      </div>
+      <div>
+        <h4>Companies</h4>
+        <ul>
+          <li><a href="#">Skyline Properties</a></li>
+          <li><a href="#">JV Contracting</a></li>
+          <li><a href="#">Silopower</a></li>
+          <li><a href="#">Industries Ltd.</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#">Construction &amp; Civil Works</a></li>
+          <li><a href="#">Energy &amp; Power</a></li>
+          <li><a href="#">Manufacturing</a></li>
+          <li><a href="#">Real Estate</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Keep in Touch</h4>
+        <ul>
+          <li>12th Floor, City Tower, Main Rd.</li>
+          <li>+000 000 000 000</li>
+          <li>info@buildgroup.example</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Build Group. Template for demonstration.</span>
+      <div class="foot-social">
+        <a href="#">f</a><a href="#">in</a><a href="#">ig</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // header on scroll
+  const header = document.getElementById('siteHeader');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  // hero slider
+  const slides = document.querySelectorAll('.hero-slide');
+  const dotsWrap = document.getElementById('heroDots');
+  const curEl = document.getElementById('slideCur');
+  let idx = 0;
+  slides.forEach((_, i) => {
+    const b = document.createElement('button');
+    if (i === 0) b.classList.add('active');
+    b.addEventListener('click', () => goTo(i));
+    dotsWrap.appendChild(b);
+  });
+  const heroEyebrow = document.getElementById('heroEyebrow');
+  const heroTitle = document.getElementById('heroTitle');
+  const heroDesc = document.getElementById('heroDesc');
+  const heroTextWrap = document.querySelector('.hero-text');
+
+  function applySlideText(slide){
+    heroEyebrow.textContent = slide.dataset.eyebrow;
+    heroTitle.innerHTML = slide.dataset.title;
+    heroDesc.textContent = slide.dataset.desc;
+  }
+  applySlideText(slides[0]);
+
+  function goTo(i){
+    if (i === idx) return;
+
+    slides[idx].classList.remove('active');
+    dotsWrap.children[idx].classList.remove('active');
+    idx = i;
+    slides[idx].classList.add('active');
+    dotsWrap.children[idx].classList.add('active');
+    curEl.textContent = String(idx+1).padStart(2,'0');
+
+    heroTextWrap.classList.add('hero-text-hidden');
+    setTimeout(() => {
+      applySlideText(slides[idx]);
+      requestAnimationFrame(() => {
+        heroTextWrap.classList.remove('hero-text-hidden');
+      });
+    }, 180);
+  }
+  setInterval(() => goTo((idx+1) % slides.length), 5000);
+
+  // counters
+  const counters = document.querySelectorAll('.counter');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if(e.isIntersecting){
+        const el = e.target;
+        const target = parseInt(el.dataset.target, 10);
+        let cur = 0;
+        const step = Math.max(1, Math.ceil(target/60));
+        const t = setInterval(() => {
+          cur += step;
+          if(cur >= target){ cur = target; clearInterval(t); }
+          el.textContent = cur;
+        }, 25);
+        io.unobserve(el);
+      }
+    });
+  }, {threshold:.4});
+  counters.forEach(c => io.observe(c));
+</script>
+</body>
+</html>

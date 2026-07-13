@@ -1,0 +1,521 @@
+
+        /* ─── reuse all root variables & base styles ─── */
+        :root {
+            --ink: #0E1A2B;
+            --ink-2: #142A44;
+            --panel: #0B1524;
+            --steel: #7C8894;
+            --paper: #EDEFF1;
+            --amber: #F0A939;
+            --rust: #C1502E;
+            --line: rgba(237, 239, 241, 0.12);
+            --radius: 2px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Archivo', sans-serif;
+            background: var(--paper);
+            color: var(--ink);
+            line-height: 1.5;
+            overflow-x: hidden;
+        }
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+        ul {
+            list-style: none;
+        }
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .eyebrow {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 12px;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+        }
+        .eyebrow::before {
+            content: "";
+            width: 22px;
+            height: 2px;
+            background: var(--amber);
+            display: inline-block;
+        }
+        .eyebrow.on-dark {
+            color: var(--amber);
+        }
+        .eyebrow.on-light {
+            color: var(--rust);
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: 'Archivo Expanded', sans-serif;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: -0.01em;
+            line-height: 1.05;
+        }
+
+        .wrap {
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        /* ─── HEADER ─── */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: linear-gradient(to bottom, rgba(11, 21, 36, .85), transparent);
+            padding: 22px 0;
+            transition: background .3s ease, padding .3s ease;
+        }
+        header.scrolled {
+            background: var(--panel);
+            padding: 14px 0;
+            border-bottom: 1px solid var(--line);
+        }
+        nav.wrap {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .logo {
+            font-family: 'Archivo Expanded', sans-serif;
+            font-weight: 800;
+            font-size: 22px;
+            color: var(--paper);
+            letter-spacing: .02em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .logo .mark {
+            width: 34px;
+            height: 34px;
+            background: var(--amber);
+            position: relative;
+            display: inline-block;
+            clip-path: polygon(0 0, 100% 0, 100% 65%, 65% 65%, 65% 100%, 0 100%);
+        }
+        .navlinks {
+            display: flex;
+            gap: 34px;
+            align-items: center;
+        }
+        .navlinks li {
+            position: relative;
+        }
+        .navlinks>li>a {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 12.5px;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            color: var(--paper);
+            font-weight: 600;
+            padding: 8px 0;
+            opacity: .88;
+        }
+        .navlinks>li>a:hover {
+            opacity: 1;
+            color: var(--amber);
+        }
+        .navlinks .btn {
+            background: var(--amber);
+            color: var(--ink);
+            padding: 11px 20px;
+            font-weight: 700;
+        }
+        .navlinks .btn:hover {
+            background: var(--paper);
+            color: var(--ink);
+        }
+
+        .dropdown:hover .submenu {
+            display: block;
+        }
+        .dropdown {
+            display: inline-block;
+            position: relative;
+        }
+        .submenu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            padding: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            list-style: none;
+            min-width: 220px;
+        }
+        .submenu li a:hover {
+            color: orange;
+        }
+
+        /* ─── HERO (management) ─── */
+        .hero-team {
+            position: relative;
+            height: 70vh;
+            min-height: 480px;
+            display: flex;
+            align-items: flex-end;
+            background: var(--ink);
+            overflow: hidden;
+        }
+        .hero-team .bg {
+            position: absolute;
+            inset: 0;
+            background:linear-gradient(to right,rgb(3, 3, 22), transparent), url('picha/manage.jpg');
+            background-size: cover;
+            background-position: center;
+            animation: zoomInOut 8s ease-in-out infinite;
+        }
+        
+        @keyframes zoomInOut {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+        .hero-team .hero-content {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            padding: 80px 0 60px;
+        }
+        .hero-team .hero-content .wrap {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+        .hero-team .hero-text {
+            max-width: 720px;
+        }
+        .hero-team .hero-text .eyebrow {
+            margin-bottom: 18px;
+            animation: slideUpIn 0.8s ease-out 0.2s both;
+        }
+        .hero-team .hero-text h1 {
+            color: var(--paper);
+            font-size: clamp(34px, 5vw, 62px);
+            margin-bottom: 16px;
+            animation: slideUpIn 0.8s ease-out 0.4s both;
+        }
+        .hero-team .hero-text h1 em {
+            font-style: normal;
+            color: var(--amber);
+        }
+        .hero-team .hero-text p {
+            color: rgba(237, 239, 241, .78);
+            font-size: 17px;
+            max-width: 520px;
+            margin-bottom: 10px;
+            animation: slideUpIn 0.8s ease-out 0.6s both;
+        }
+        @keyframes slideUpIn {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ─── TEAM GRID ─── */
+        .team {
+            background: var(--paper);
+            padding: 90px 0;
+        }
+        .team .section-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-bottom: 56px;
+        }
+        .team .section-head h2 {
+            font-size: clamp(28px, 3.4vw, 42px);
+        }
+        .team .section-head p {
+            color: #555b61;
+            max-width: 420px;
+            font-size: 15px;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .team-card {
+            background: #fff;
+            border: 1px solid #d9dbdd;
+            transition: transform .3s ease, box-shadow .3s ease;
+            overflow: hidden;
+        }
+        .team-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+        }
+        .team-card .photo {
+            aspect-ratio: 1/1;
+            background-size: cover;
+            background-position: center 20%;
+            position: relative;
+        }
+        .team-card .photo .badge {
+            position: absolute;
+            bottom: 14px;
+            left: 14px;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 10px;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            background: var(--ink);
+            color: var(--paper);
+            padding: 4px 10px;
+            border-left: 3px solid var(--amber);
+        }
+        .team-card .body {
+            padding: 24px 26px 28px;
+        }
+        .team-card .body .name {
+            font-family: 'Archivo Expanded', sans-serif;
+            font-weight: 800;
+            font-size: 20px;
+            letter-spacing: -0.01em;
+            margin-bottom: 4px;
+        }
+        .team-card .body .title {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 12px;
+            letter-spacing: .06em;
+            text-transform: uppercase;
+            color: var(--rust);
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        .team-card .body .bio {
+            font-size: 14px;
+            color: #4a5058;
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+        .team-card .body .social {
+            display: flex;
+            gap: 12px;
+        }
+        .team-card .body .social a {
+            width: 30px;
+            height: 30px;
+            border: 1px solid #d3d6d9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--steel);
+            transition: all .2s ease;
+        }
+        .team-card .body .social a:hover {
+            border-color: var(--amber);
+            color: var(--amber);
+        }
+
+        /* ─── TEAM VALUES / CULTURE ─── */
+        .culture {
+            background: var(--ink);
+            padding: 80px 0;
+            border-top: 1px solid var(--line);
+            border-bottom: 1px solid var(--line);
+        }
+        .culture .wrap {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 40px;
+        }
+        .culture-item .eyebrow {
+            margin-bottom: 14px;
+        }
+        .culture-item h3 {
+            color: var(--paper);
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        .culture-item p {
+            color: rgba(237, 239, 241, .6);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* ─── CTA ─── */
+        .cta {
+            background: var(--rust);
+            color: var(--paper);
+            padding: 80px 0;
+        }
+        .cta .wrap {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        .cta h2 {
+            font-size: clamp(26px, 3.4vw, 40px);
+            max-width: 560px;
+            color: var(--paper);
+        }
+        .cta .btn-solid {
+            background: var(--ink);
+            color: var(--paper);
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 12.5px;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            font-weight: 600;
+            padding: 15px 26px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all .2s ease;
+        }
+        .cta .btn-solid:hover {
+            background: var(--paper);
+            color: var(--ink);
+        }
+
+        /* ─── FOOTER ─── */
+        footer {
+            background: var(--panel);
+            color: rgba(237, 239, 241, .7);
+            padding: 70px 0 26px;
+        }
+        .foot-grid {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+            gap: 40px;
+            padding-bottom: 50px;
+            border-bottom: 1px solid var(--line);
+        }
+        .foot-grid h4 {
+            color: var(--paper);
+            font-size: 13px;
+            letter-spacing: .08em;
+            font-family: 'IBM Plex Mono', monospace;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        .foot-brand .logo {
+            margin-bottom: 16px;
+        }
+        .foot-brand p {
+            font-size: 14px;
+            max-width: 280px;
+            color: rgba(237, 239, 241, .55);
+        }
+        .foot-grid ul {
+            display: grid;
+            gap: 11px;
+        }
+        .foot-grid ul a {
+            font-size: 14px;
+            color: rgba(237, 239, 241, .68);
+        }
+        .foot-grid ul a:hover {
+            color: var(--amber);
+        }
+        .foot-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 26px;
+            flex-wrap: wrap;
+            gap: 14px;
+            font-size: 12.5px;
+            color: rgba(237, 239, 241, .45);
+            font-family: 'IBM Plex Mono', monospace;
+        }
+        .foot-social {
+            display: flex;
+            gap: 14px;
+        }
+        .foot-social a {
+            width: 32px;
+            height: 32px;
+            border: 1px solid var(--line);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+        }
+        .foot-social a:hover {
+            border-color: var(--amber);
+            color: var(--amber);
+        }
+
+        /* ─── RESPONSIVE ─── */
+        @media(max-width:900px) {
+            .navlinks {
+                display: none;
+            }
+            .team-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .culture .wrap {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            .foot-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .hero-team .hero-content .wrap {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+        @media(max-width:600px) {
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+            .foot-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero-team {
+                height: 60vh;
+                min-height: 400px;
+            }
+        }
+    

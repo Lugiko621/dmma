@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Customer Request — Contact Us</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="form.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="wrap">
+
+  <div class="masthead">
+    <div class="mark">DMMA &amp; GROUP</div>
+    <div class="tagline">Dar es salaam Corporate Office</div>
+  </div>
+
+  <div class="layout">
+
+    <!-- SIDEBAR -->
+    <aside class="side">
+      <div class="side-block">
+        <h3>Where to Buy</h3>
+        <a href="#" onclick="return false;">Find a location near you →</a>
+      </div>
+
+      <div class="side-block">
+        <h3>Call Us</h3>
+        <p class="name">DMMA &amp; GROUP Support</p>
+        <p>255 (0) 654 798731</p>
+      </div>
+
+      <div class="side-block">
+        <h3>Corporate Office</h3>
+        <p class="name">DMMA &amp; GROUP LIMITED</p>
+        <p>Mahakamani road, Ilala, P.O. Box<br>
+        Dar es salaam Tanzania</p>
+        <a href="#" onclick="return false;">info@dmmagroup.com</a>
+      </div>
+    </aside>
+
+    <!-- FORM PANEL -->
+    <main class="panel">
+
+      <div class="panel-head">
+        <h2>Tell us how we can help</h2>
+        <p>Fill in the details below and our team will get back to you within one business day.</p>
+      </div>
+
+      <div class="progress-rail"><div class="progress-fill" id="progressFill"></div></div>
+
+      <form id="requestForm" novalidate>
+
+        <div class="grid-2">
+          <div class="field" data-field="name">
+            <label for="name">Name<span class="req">*</span></label>
+            <input type="text" id="name" name="name" autocomplete="name">
+            <div class="msg">Please enter your name.</div>
+          </div>
+
+          <div class="field" data-field="city">
+            <label for="city">City<span class="req">*</span></label>
+            <input type="text" id="city" name="city" autocomplete="address-level2">
+            <div class="msg">Please enter your city.</div>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <div class="field" data-field="phone">
+            <label for="phone">Phone<span class="req">*</span></label>
+            <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="+254 7XX XXX XXX">
+            <div class="msg">Please enter a valid phone number.</div>
+          </div>
+
+          <div class="field" data-field="email">
+            <label for="email">Your Email Address<span class="req">*</span></label>
+            <input type="email" id="email" name="email" autocomplete="email">
+            <div class="msg">Please enter a valid email address.</div>
+          </div>
+        </div>
+
+        <div class="field" data-field="message">
+          <label for="message">Please describe in detail your request, question or issue with your product<span class="req">*</span></label>
+          <textarea id="message" name="message"></textarea>
+          <div class="msg">Please describe your request.</div>
+        </div>
+
+        <div class="actions">
+          <button type="submit" class="send">Send</button>
+          <span class="status" id="statusText"></span>
+        </div>
+
+      </form>
+
+      <div class="success-panel" id="successPanel">
+        <div class="glyph">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+            <path d="M4 12.5L9.5 18L20 6" stroke="#3C7A89" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h3>Request received</h3>
+        <p>Thank you — a member of our team will reach out shortly.</p>
+        <button type="button" id="resetBtn">Send another request</button>
+      </div>
+
+    </main>
+  </div>
+</div>
+
+<script>
+(function(){
+  const form = document.getElementById('requestForm');
+  const fields = ['name','city','phone','email','message'];
+  const progressFill = document.getElementById('progressFill');
+  const statusText = document.getElementById('statusText');
+  const successPanel = document.getElementById('successPanel');
+  const resetBtn = document.getElementById('resetBtn');
+
+  const validators = {
+    name: v => v.trim().length > 0,
+    city: v => v.trim().length > 0,
+    phone: v => /^[0-9+()\-\s]{7,}$/.test(v.trim()),
+    email: v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()),
+    message: v => v.trim().length > 0
+  };
+
+  function updateProgress(){
+    let filled = 0;
+    fields.forEach(f=>{
+      const el = document.getElementById(f);
+      if (validators[f](el.value)) filled++;
+    });
+    progressFill.style.width = (filled / fields.length * 100) + '%';
+  }
+
+  function setFieldState(name, valid){
+    const wrap = form.querySelector(`[data-field="${name}"]`);
+    wrap.classList.toggle('invalid', !valid);
+  }
+
+  fields.forEach(f=>{
+    const el = document.getElementById(f);
+    el.addEventListener('input', ()=>{
+      if (form.querySelector(`[data-field="${f}"]`).classList.contains('invalid')){
+        setFieldState(f, validators[f](el.value));
+      }
+      updateProgress();
+    });
+  });
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    let allValid = true;
+    fields.forEach(f=>{
+      const el = document.getElementById(f);
+      const valid = validators[f](el.value);
+      setFieldState(f, valid);
+      if (!valid) allValid = false;
+    });
+
+    if (!allValid){
+      statusText.textContent = 'Please fill in all required fields.';
+      statusText.classList.remove('ok');
+      return;
+    }
+
+    statusText.textContent = 'Sending…';
+    statusText.classList.remove('ok');
+
+    setTimeout(()=>{
+      statusText.textContent = '';
+      form.style.display = 'none';
+      document.querySelector('.progress-rail').style.display = 'none';
+      successPanel.classList.add('show');
+    }, 600);
+  });
+
+  resetBtn.addEventListener('click', function(){
+    form.reset();
+    fields.forEach(f=> setFieldState(f, true));
+    updateProgress();
+    successPanel.classList.remove('show');
+    form.style.display = 'block';
+    document.querySelector('.progress-rail').style.display = 'block';
+  });
+
+  updateProgress();
+})();
+</script>
+
+</body>
+</html>
