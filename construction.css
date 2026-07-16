@@ -587,14 +587,6 @@
     list-style:none;
     gap:30px;
 }
-
-/* Mobile */
-@media(max-width:768px){
-
-.menu-btn{
-    display:block;
-}
-
 .navlinks{
     display:none;
     flex-direction:column;
@@ -614,13 +606,15 @@
 .navlinks li{
     margin:15px 0;
 }
-
 .dropdown .submenu{
+    display:none;
     position:static;
-    display:block;
-    background:none;
+    background:#0d1f36;
     box-shadow:none;
+    padding:10px 0;
 }
 
+.dropdown.active .submenu{
+    display:block;
 }
 
