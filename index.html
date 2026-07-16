@@ -373,6 +373,12 @@ in Sengerema, Mwanza
     });
   }, {threshold:.4});
   counters.forEach(c => io.observe(c));
+const menuBtn = document.getElementById("menu-btn");
+const navLinks = document.getElementById("navlinks");
+
+menuBtn.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+});
 </script>
 </body>
 </html>
